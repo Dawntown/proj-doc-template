@@ -1,0 +1,194 @@
+% Example slides demonstrating all special environments defined in the template
+% This file can be included in slides.tex using \input{example_slides.tex}
+
+\section{Special Environments in Slides}
+
+\begin{frame}{Mathematical Environments}
+    This slide demonstrates mathematical theorem-like environments available in Beamer.
+    
+    \begin{theorem}[Sample Theorem]
+        In Beamer, theorems are displayed with colored borders and backgrounds.
+    \end{theorem}
+    
+    \begin{lemma}[Sample Lemma]
+        Lemmas use a different color scheme from theorems.
+    \end{lemma}
+    
+    \begin{corollary}[Sample Corollary]
+        Corollaries follow from theorems and lemmas.
+    \end{corollary}
+\end{frame}
+
+\begin{frame}{Definitions and Examples}
+    \begin{definition}[Important Concept]
+        Definitions are used to introduce key mathematical or technical concepts.
+        In Beamer, definitions have distinct styling to differentiate them from theorems.
+    \end{definition}
+    
+    \begin{example}
+        Examples help illustrate how definitions and theorems are applied in practice.
+    \end{example}
+\end{frame}
+
+\begin{frame}{Propositions and Claims}
+    \begin{prop}[Sample Proposition]
+        Propositions are statements that can be proven or disproven.
+    \end{prop}
+    
+    \begin{claim}[Sample Claim]
+        Claims are assertions that require verification or proof.
+    \end{claim}
+\end{frame}
+
+\begin{frame}{Proofs and Explanations}
+    \begin{proof}[Sample Proof]
+        This is a proof environment. In Beamer, proofs maintain the same QED symbol
+        as defined in the preamble (smiley face by default).
+    \end{proof}
+    
+    \begin{explanation}
+        Explanations provide detailed reasoning or clarification of concepts.
+    \end{explanation}
+\end{frame}
+
+\begin{frame}{Questions and Solutions}
+    \begin{question}
+        How do special environments work in Beamer slides?
+    \end{question}
+    
+    \begin{solution}
+        Special environments in Beamer use the same styling as in reports,
+        with colored boxes and appropriate formatting for presentation.
+    \end{solution}
+\end{frame}
+
+\begin{frame}{Notes and Custom Commands}
+    \begin{notebox}
+        Notes can be used to add side comments or additional information
+        that doesn't fit in the main flow of the presentation.
+        (Note: Use \texttt{notebox} instead of \texttt{note} since Beamer reserves \texttt{note} for speaker notes)
+    \end{notebox}
+    
+    Custom commands also work in slides:
+    \begin{itemize}
+        \item \cmd{commandname} - formats commands in red
+        \item \env{envname} - formats environments in blue
+        \item \ulbf{bold underline} - creates bold underlined text
+        \item \todo{reminder} - creates red italic todo notes
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Mathematical Notation}
+    The template includes custom mathematical commands that work in Beamer:
+    
+    \begin{itemize}
+        \item KL divergence: $\infdiv{P}{Q}$ where $P$ and $Q$ are probability distributions
+        \item Norm: $\norm{\mathbf{x}}$ for vector norms
+        \item Expectation: $\E[X]$ for expected value
+        \item Operators: $\argmax_{x} f(x)$, $\argmin_{x} f(x)$, $\vperp$
+    \end{itemize}
+    
+    \vspace{0.5cm}
+    Example equation:
+    \begin{equation}
+        \hat{\bm{s}}(\psi) = \bm{Z}^\text{post}_\psi - \bm{Z}^\text{pre}
+    \end{equation}
+\end{frame}
+
+\begin{frame}[fragile]{Code Listings in Slides}
+    The template supports code listings with syntax highlighting.
+    Note: frames with code listings need the \texttt{[fragile]} option.
+    
+    \begin{lstlisting}[language=Python,basicstyle=\tiny\ttfamily]
+def example_function(x, y):
+    """Example Python function"""
+    result = x + y
+    return result
+    \end{lstlisting}
+    
+    \begin{lstlisting}[language=R,basicstyle=\tiny\ttfamily]
+# Example R code
+x <- c(1, 2, 3, 4, 5)
+mean(x)
+    \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Algorithms in Slides}
+    The template supports algorithm environments:
+    
+    \begin{algorithm}[H]
+    \caption{Sample Algorithm}
+    \begin{algorithmic}[1]
+        \Initialize{Set initial parameters}
+        \For{each iteration}
+            \State Compute value
+            \If{condition is met}
+                \State Return result
+            \EndIf
+        \EndFor
+    \end{algorithmic}
+    \end{algorithm}
+\end{frame}
+
+\begin{frame}{Special Symbols}
+    The template provides checkmark and cross symbols:
+    \begin{itemize}
+        \item \cmark{} - checkmark symbol (correct)
+        \item \xmark{} - cross symbol (incorrect)
+    \end{itemize}
+    
+    These are useful for indicating correct/incorrect answers or completed tasks.
+\end{frame}
+
+\begin{frame}{Summary}
+    All special environments defined in the template work in Beamer slides:
+    \begin{itemize}
+        \item Mathematical: theorem, lemma, corollary, proposition, claim
+        \item Pedagogical: definition, example, exercise, question, solution
+        \item Proof-related: proof, explanation
+        \item Informational: note
+        \item Code: listings, algorithms
+    \end{itemize}
+    
+    These environments maintain consistent styling across all document types.
+\end{frame}
+
+\begin{frame}{Generic Reusable Blocks}
+    Use generic blocks with custom titles and colors for highlighting:
+    
+    \begin{purplevertblock}{Important Note}
+    Vertical line style (like Exercise/Proof) with purple color.
+    \end{purplevertblock}
+    
+    \begin{orangevertblock}{Custom Highlight}
+    Works great for emphasizing important points in presentations.
+    \end{orangevertblock}
+\end{frame}
+
+\begin{frame}{More Generic Blocks}
+    \begin{goldtitleblock}{Key Concept}
+    Title box style (like Definition) - perfect for key concepts.
+    \end{goldtitleblock}
+    
+    \begin{goldborderblock}{Warning}
+    Full border style (like Example) - useful for warnings.
+    \end{goldborderblock}
+    
+    Use \texttt{vertlineblock}, \texttt{titleboxblock}, or \texttt{fullborderblock} with any color!
+\end{frame}
+
+\begin{frame}{Generic Blocks with Lists}
+    \begin{greenvertblock}{Features}
+    Generic blocks work with lists:
+    \begin{itemize}
+        \item Item 1
+        \item Item 2
+        \item Item 3
+    \end{itemize}
+    \end{greenvertblock}
+    
+    \begin{highlightblock}[myblue]{Reminder}
+    Or use \texttt{highlightblock} for flexible highlighting with any color.
+    \end{highlightblock}
+\end{frame}
+

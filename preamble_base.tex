@@ -1,0 +1,71 @@
+% Basic packages and settings for all outputs
+% This file contains common packages used across manuscript, report, and slides
+
+% Essential packages
+\usepackage{amsmath}        % Advanced math formatting
+\usepackage{amssymb}        % Advanced math symbols
+\usepackage{amsthm}         % Theorem environments
+\usepackage{graphicx}       % Graphics support
+\usepackage{hyperref}       % Hyperlinks
+\usepackage{booktabs}       % Professional tables
+\usepackage{float}          % Better float control
+\usepackage{xcolor}         % Color support
+\usepackage{microtype}      % Better typography
+\usepackage{bm}             % Bold math
+\usepackage{subcaption}     % Subfigure environment
+\usepackage{natbib}         % Advanced citation management
+\usepackage{caption}        % Caption formatting
+
+% Hyperref settings
+% Note: research-collection does not use colorlinks, so links appear as boxes instead of colored text
+% Uncomment the following to use colored links:
+% \hypersetup{
+%     colorlinks,
+%     linkcolor=blue,
+%     citecolor=black,
+%     urlcolor=blue!80!black
+% }
+
+% Caption settings
+\captionsetup[figure]{labelfont=bf, labelsep=period, name={Figure}}
+\captionsetup[table]{labelfont=bf, labelsep=period, name={Table}}
+
+% Cross-reference settings
+\usepackage{cleveref}       % Smart cross-references
+\Crefname{figure}{Figure}{Figures}
+\crefname{figure}{Figure}{Figures}
+\Crefname{table}{Table}{Tables}
+\crefname{table}{Table}{Tables}
+\Crefname{equation}{Equation}{Equations}
+\crefname{equation}{Equation}{Equations}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Simple and Useful Symbol Definitions                                        %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Symbol aliases (common mathematical notation shortcuts)
+\let\implies\Rightarrow
+\let\impliedby\Leftarrow
+\let\iff\Leftrightarrow
+\let\epsilon\varepsilon
+
+% Math operators
+\DeclareMathOperator*{\argmax}{\arg\!max}
+\DeclareMathOperator*{\argmin}{\arg\!min}
+\DeclareMathOperator*{\vperp}{\text{\rotatebox{90}{$\models$}}}
+
+% Paired delimiters and norms (requires mathtools)
+\RequirePackage{mathtools}
+\DeclarePairedDelimiterX{\infdivx}[2]{(}{)}{%
+  #1\;\delimsize\|\;#2%
+}
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+
+% Common math commands
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\infdiv}{D_{\mathbb{KL}}\infdivx}
+\newcommand{\fisherdiv}{D_{\mathbb{F}}\infdivx}
+
+% Simple utility commands
+\newcommand*\widefbox[1]{\fbox{\hspace{2em}#1\hspace{2em}}}
+

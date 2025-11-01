@@ -1,0 +1,7 @@
+{
+  // LaTeX Workshop 配置：禁用保存时自动构建 PDF
+  // 注意：这只会禁用自动编译，不影响保存文件的功能
+  // 你可以继续使用 ⌘+S 保存单个文件，或 ⌘+K S 保存所有文件
+  "latex-workshop.latex.autoBuild.run": "never"
+}
+

@@ -1,0 +1,73 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Options for notes   %
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% \setbeamertemplate{note page}[plain]
+% \setbeameroption{show notes}
+% \setbeameroption{show notes on second screen}
+% \setbeameroption{show only notes}
+% \setbeameroption{show only slides with notes}
+
+% Chinese support (load before preamble)
+\usepackage{ctex}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta}
+
+\input{preamble}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%     presenter info    %
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\author{Your Name}
+\title{Your Presentation Title}
+\subtitle{Optional Subtitle}
+\institute{Your Institution}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+    \vfill
+    \begin{figure}
+        \begin{center}
+            \includegraphics[width=0.3\linewidth]{../assets/images/STAT_SFO_CU_logo_en_chi_small.png}
+        \end{center}
+    \end{figure}
+\end{frame}
+
+\section{Introduction}
+
+\begin{frame}{Introduction}
+    \begin{itemize}
+        \item Template supports multiple output formats\cite{example2024}.
+        \item Single content base for manuscripts, reports, and slides
+        \item Modular structure with shared preamble
+        \item Chinese language support via \texttt{ctex} package
+        \item 测试中文支持
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Features}
+    \begin{enumerate}
+        \item \textbf{Manuscript}: Line numbers, margin notes, formal formatting
+        \item \textbf{Report}: Draft integration, working notes support
+        \item \textbf{Slides}: Beamer format with logo support
+    \end{enumerate}
+\end{frame}
+
+% Include example slides demonstrating all special environments
+\input{example_slides.tex}
+
+% Add more sections and frames as needed
+
+\begin{frame}[allowframebreaks]{References}
+    % \tiny
+    \bibliographystyle{abbrvnat}
+    \bibliography{../ref}
+\end{frame}
+
+\end{document}
+

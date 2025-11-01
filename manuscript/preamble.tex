@@ -1,0 +1,41 @@
+% Style settings for manuscript
+% Referenced from DriverGenes-paper/preamble.tex
+
+% Configure natbib for manuscript (use numbers with square brackets)
+% This must be done before loading preamble_base.tex
+\PassOptionsToPackage{numbers,square,sort&compress}{natbib}
+
+\input{../preamble_base.tex}
+
+% Additional packages for manuscript
+\usepackage{geometry}       % Page layout
+\usepackage{algorithm}      % Algorithm environment
+\usepackage{algpseudocode}  % Algorithm pseudocode
+\usepackage{siunitx}        % SI units
+\usepackage{listings}       % Code listings
+\usepackage{marginnote}     % Margin notes
+\usepackage{setspace}       % Set space environment
+\usepackage{makecell}       % Makecell environment
+\usepackage{framed}         % Framed environment
+\usepackage{svg}            % SVG support
+\usepackage[toc,page]{appendix}
+\renewcommand{\appendixname}{Supplementary}
+\usepackage{lineno}         % Line numbers
+
+% Custom patch: make equations not break line numbering
+\let\oldequation=\equation
+\let\endoldequation=\endequation
+\renewenvironment{equation}{\linenomathNonumbers\oldequation}{\endoldequation}
+
+\let\oldalign=\align
+\let\endoldalign=\endalign
+\renewenvironment{align}{\linenomathNonumbers\oldalign}{\endoldalign}
+
+\let\oldgather=\gather
+\let\endoldgather=\endgather
+\renewenvironment{gather}{\linenomathNonumbers\oldgather}{\endoldgather}
+
+% Appendix settings
+\Crefname{appendix}{Supp. Material}{Supp. Materials}
+\crefname{appendix}{Supp. Material}{Supp. Materials}
+

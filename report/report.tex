@@ -1,0 +1,55 @@
+\documentclass[working]{article}
+
+% Chinese support (load before preamble)
+\usepackage{ctex}
+
+% Configure natbib for report (use author-year style)
+% This must be done before loading preamble
+\PassOptionsToPackage{authoryear,round}{natbib}
+
+\input{preamble.tex}
+
+\geometry{a4paper,left=2cm,right=6cm,top=2cm,bottom=2cm}
+\setlength{\marginparwidth}{4cm}
+% \linenumbers
+
+% Bibliography style for report (author-year style)
+\bibliographystyle{abbrvnat}
+\setcitestyle{authoryear, open={(},close={)}}
+
+\title{Weekly Report of Learning Notes}
+\author{Your Name}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\section{Weekly Summary}
+
+测试中文支持
+
+This is an example weekly report generated from the template.
+The report can integrate multiple drafts from the \texttt{drafts/} directory.
+
+% Import drafts
+% Example: \input{../drafts/20241013-diffusionmodel.tex}
+% \input{../drafts/<timestamp>_<short_desc>.tex}
+
+\section{Progress}
+
+\begin{itemize}
+    \item Completed template structure setup\citep{example2024}.
+    \item Tested compilation scripts\citet{example2024}.
+    \item Verified all document types work correctly\cite{example2024}.
+\end{itemize}
+
+% Import example draft demonstrating all special environments
+\input{../drafts/20251101_example_draft.tex}
+
+% \listnotes
+\bibliography{../ref}
+
+\end{document}
+

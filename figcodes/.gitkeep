@@ -1,0 +1,11 @@
+% This directory contains figure generation code
+% - data/ --> OneDrive to sync large data files
+% - figs/ --> OneDrive to sync large number of images
+%   - fig-board.ai # project illustration source file linking to all important individual figures 
+%   - PDF/         # exported artboards in fig-board.ai
+%   - *.pdf        # figs for specific element
+% - tabs/     # tables in txt or csv format
+% - myutils/  # common plotting and analysis functions or scripts
+% - figure_<expr_name>.ipynb # save pdf to figs/
+% - illustration_<element_name>.ipynb # save pdf to figs/
+

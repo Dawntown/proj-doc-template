@@ -1,0 +1,75 @@
+% !TeX program = pdflatex
+\documentclass[12pt,a4paper]{article}
+
+% Chinese support (load before preamble)
+% Note: ctex requires xelatex compiler, compile.sh will auto-detect this
+\usepackage{ctex}
+
+\input{preamble.tex}
+
+% Page margins and margin notes settings
+\geometry{
+    a4paper,
+    left=2cm,      % 左边距
+    right=2cm,     % 右边距
+    top=2.5cm,     % 上边距
+    bottom=2.5cm,  % 下边距
+    marginparwidth=2.2cm,    % 边注宽度
+    marginparsep=0.8cm       % 边注与正文间距
+}
+\setstretch{1.5}  % Set the line spacing
+\renewcommand*{\marginfont}{\scriptsize\itshape}
+\setlength{\marginparpush}{0.2em}  % 增加边注之间的最小间距
+
+% Line numbers
+\linenumbers  % Enable line numbers globally
+\renewcommand\linenumberfont{\normalfont\tiny\sffamily}  % Optional: customize line number font
+
+% Adjust enumerate and itemize environment spacing
+\usepackage{enumitem}
+\setlist[enumerate]{itemsep=0pt, topsep=0pt}
+\setlist[itemize]{itemsep=0pt, topsep=0pt}
+
+% Document information
+\title{Your Manuscript Title}
+\author{Your Name}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\newpage
+
+测试中文支持
+
+% Import chapters
+\input{../sections/intro.tex}
+\input{../sections/methods.tex}
+\input{../sections/results.tex}
+\input{../sections/discussion.tex}
+\input{../sections/conclusion.tex}
+
+\newpage
+\appendix
+\setcounter{equation}{0}
+\renewcommand{\theequation}{S\arabic{equation}}
+\setcounter{table}{0}
+\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\thesection}{S}
+\renewcommand{\thesubsection}{S\arabic{subsection}}
+\input{../sections/supp.tex}
+
+% References
+\newpage
+\bibliographystyle{unsrtnat}
+\bibliography{../ref}
+
+% Figures (if needed to be included at the end)
+% \newpage
+% \input{../figures/figure_overview.tex}
+% ... other figures ...
+
+\end{document}
+

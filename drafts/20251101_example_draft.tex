@@ -1,0 +1,225 @@
+% Example draft file demonstrating all special environments
+% Date: 2025-11-01
+% This file can be included in reports using \input{../drafts/20251101_example_draft.tex}
+
+\section{Example Draft: Special Environments}
+
+This draft demonstrates the use of various special environments available in the template,
+including definitions, theorems, lemmas, and other mathematical environments.
+
+\subsection{Definition}
+
+\begin{definition}[Important Concept]
+A definition environment can be used to introduce key concepts.
+The template provides colored definition boxes when using the \texttt{working} class option.
+\end{definition}
+
+\begin{definition}
+This is a definition without a title.
+\end{definition}
+
+\subsection{Theorem Environments}
+
+\begin{theorem}[Fundamental Theorem]
+This is a theorem statement. The theorem environment is automatically numbered within sections.
+\end{theorem}
+
+\begin{lemma}[Key Lemma]
+This is a lemma. Lemmas are typically used to prove theorems.
+\end{lemma}
+
+\begin{corollary}[Important Result]
+This is a corollary that follows from the theorem above.
+\end{corollary}
+
+\begin{prop}[Useful Proposition]
+This is a proposition statement.
+\end{prop}
+
+\begin{claim}[Test Claim]
+This is a claim that needs to be verified.
+\end{claim}
+
+\subsection{Examples and Exercises}
+
+\begin{example}
+This is an example demonstrating how to use the example environment.
+Examples are useful for illustrating concepts.
+\end{example}
+
+\begin{exercise}
+This is an exercise for the reader to complete.
+Exercises can be used in teaching materials or practice problems.
+\end{exercise}
+
+\subsection{Questions and Solutions}
+
+\begin{question}
+What is the purpose of this template?
+\end{question}
+
+\begin{solution}
+The template provides a structured way to create multiple document types (manuscripts, reports, slides) from a single content base.
+\end{solution}
+
+\subsection{Proof Environments}
+
+\begin{proof}
+This is a proof environment. The proof will automatically end with a QED symbol (or custom symbol defined in the preamble).
+The template uses a smiley face as the QED symbol by default.
+\end{proof}
+
+\begin{explanation}
+This is an explanation environment, similar to proof but with different styling.
+It can be used to provide detailed explanations of concepts.
+\end{explanation}
+
+\subsection{Other Environments}
+
+\begin{note}
+This is a note environment for additional remarks or observations.
+Notes are typically styled with a gray background.
+\end{note}
+
+\subsection{Mathematical Notation}
+
+The template includes custom mathematical commands:
+
+\begin{itemize}
+    \item KL divergence: $\infdiv{P}{Q}$ where $P$ and $Q$ are probability distributions
+    \item Norm: $\norm{\mathbf{x}}$ for vector norms
+    \item Expectation: $\E[X]$ for expected value
+    \item Operators: $\argmax$, $\argmin$, $\vperp$ for perpendicular
+\end{itemize}
+
+\subsection{Code Listings}
+
+The template supports code listings with syntax highlighting:
+
+\begin{lstlisting}[language=Python]
+def example_function(x, y):
+    """Example Python function"""
+    result = x + y
+    return result
+\end{lstlisting}
+
+\begin{lstlisting}[language=R]
+# Example R code
+x <- c(1, 2, 3, 4, 5)
+mean(x)
+\end{lstlisting}
+
+\subsection{Algorithms}
+
+The template supports algorithm environments:
+
+\begin{algorithm}[H]
+\caption{Example Algorithm}
+\Initialize{Set initial parameters}
+\For{each iteration}{
+    \State Compute value
+    \If{condition is met}{
+        \State Return result
+    }
+}
+\end{algorithm}
+
+\subsection{Framed Environments}
+
+The template provides framed environments for emphasis:
+
+\begin{framed}
+This text is in a framed box, useful for highlighting important information.
+\end{framed}
+
+\subsection{Custom Commands}
+
+The template includes several custom commands:
+\begin{itemize}
+    \item \cmd{commandname} - formats command names in red
+    \item \env{envname} - formats environment names in blue
+    \item \ulbf{bold underline} - creates bold underlined text
+    \item \todo{reminder} - creates red italic todo notes
+\end{itemize}
+
+\subsection{Special Symbols}
+
+The template provides checkmark and cross symbols:
+\begin{itemize}
+    \item \cmark{} - checkmark symbol
+    \item \xmark{} - cross symbol
+\end{itemize}
+
+\subsection{Summary}
+
+This example draft demonstrates the comprehensive set of environments and commands available in the template.
+All these environments work seamlessly in reports and can be adapted for manuscripts and slides as needed.
+
+\section{Generic Reusable Blocks}
+
+You can use generic blocks with custom titles and colors for highlighting any content. These blocks are named by style (vertical line, title box, full border) and can be used with any color:
+
+\begin{purplevertblock}{Important Note}
+This block uses vertical line style (left border only) with purple color.
+This is the same style used by \texttt{exercise} and \texttt{proof} environments.
+Perfect for important notes or reminders.
+\end{purplevertblock}
+
+\begin{orangevertblock}{Exercise-Style Block}
+This demonstrates the vertical line style with orange color, matching the exercise environment style.
+\begin{enumerate}
+    \item First item in the list
+    \item Second item
+    \item Works great with enumerate and itemize!
+\end{enumerate}
+\end{orangevertblock}
+
+\begin{goldtitleblock}{Key Concept}
+This block uses the title box style (colored title box at top) with gold color.
+This is the same style used by \texttt{definition} environment.
+Perfect for definitions or key concepts.
+\end{goldtitleblock}
+
+\begin{goldborderblock}{Important Warning}
+This block has a full border (all sides) with gold color.
+This is the same style used by \texttt{example} environment.
+Useful for warnings or critical information.
+\end{goldborderblock}
+
+\begin{highlightblock}[myblue]{Custom Highlight}
+You can use \texttt{highlightblock} with any color for flexible highlighting:
+\begin{verbatim}
+\begin{highlightblock}[myblue]{Title}
+Content here...
+\end{highlightblock}
+\end{verbatim}
+This works great for code examples, lists, or any content you want to emphasize.
+\end{highlightblock}
+
+\begin{vertlineblock}[mygreen]{Generic Vertical Line Block}
+Use \texttt{vertlineblock} with any color name for a vertical line style:
+\begin{verbatim}
+\begin{vertlineblock}[mygreen]{Title}
+Content with lists:
+\begin{itemize}
+    \item Item 1
+    \item Item 2
+\end{itemize}
+\end{vertlineblock}
+\end{verbatim}
+\end{vertlineblock}
+
+\begin{titleboxblock}[cuhkpurple]{Generic Title Box Block}
+Use \texttt{titleboxblock} with any color name for a title box style:
+\begin{verbatim}
+\begin{titleboxblock}[cuhkpurple]{Title}
+Any content including equations:
+\begin{equation}
+E = mc^2
+\end{equation}
+\end{titleboxblock}
+\end{verbatim}
+\end{titleboxblock}
+
+These generic blocks are fully flexible and can contain any LaTeX content including lists, equations, code, and nested blocks!
+

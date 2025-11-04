@@ -3,10 +3,13 @@
 % Note: natbib configuration (authoryear or numbers) should be done in report.tex
 % before \input{preamble.tex}
 
+% Pass options to packages before loading preamble_base
+\PassOptionsToPackage{usenames,dvipsnames}{xcolor}
+\PassOptionsToPackage{most,many,breakable}{tcolorbox}
+
 \input{../preamble_base.tex}
 
 % Additional packages for report
-\usepackage[usenames,dvipsnames,pdftex]{xcolor}
 \usepackage[shortlabels]{enumitem}
 \setlist{nolistsep}
 \usepackage{framed}
@@ -69,7 +72,7 @@
 
 \usepackage{varwidth}
 \usepackage{thmtools}
-\usepackage[most,many,breakable]{tcolorbox}
+% tcolorbox already loaded in preamble_base with options passed above
 \usepackage[framemethod=TikZ]{mdframed}
 
 \tcbuselibrary{theorems,skins,hooks}
@@ -175,22 +178,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \makeatletter
-\@ifclasswith\class{nocolor}{
-  % Environments without color.
-  \createnewtheoremstyle{thmdefinitionbox}{}{}
-  \createnewtheoremstyle{thmtheorembox}{}{}
-  \createnewtheoremstyle{thmexamplebox}{}{}
-  \createnewtheoremstyle{thmclaimbox}{}{}
-  \createnewtheoremstyle{thmcorollarybox}{}{}
-  \createnewtheoremstyle{thmpropbox}{}{}
-  \createnewtheoremstyle{thmlemmabox}{}{}
-  \createnewtheoremstyle{thmexercisebox}{}{}
-  \createnewtheoremstyle{thmquestionbox}{}{}
-  \createnewtheoremstyle{thmsolutionbox}{}{}
-  \createnewtheoremstyle{thmproofbox}{qed=\qedsymbol}{}
-  \createnewtheoremstyle{thmexplanationbox}{}{}
-}{
-  % Environments with color.
+% Always use colored environments for report
+% Environments with color.
   \createnewcoloredtheoremstyle{thmdefinitionbox}{definition}{}{}
   \createnewcoloredtheoremstyle{thmtheorembox}{theorem}{}{}
   \createnewcoloredtheoremstyle{thmexamplebox}{example}{}{
@@ -207,7 +196,6 @@
   \createnewvertlinestyle{thmexercisebox}{exercise}{}{}
   \createnewvertlinestyle{thmproofbox}{proof}{qed=\qedsymbol}{backgroundcolor=proof!3}
   \createnewvertlinestyle{thmexplanationbox}{example}{qed=\qedsymbol}{backgroundcolor=example!3}
-}
 \makeatother
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -225,14 +213,8 @@
 \declaretheorem[numbered=no,          style=thmexplanationbox, name=Proof]{expl}
 
 \makeatletter
-\@ifclasswith\class{nocolor}{
-  % Environments without color.
-  \newtheorem*{note}{Note}
-  \declaretheorem[numberwithin=section, style=thmdefinitionbox, name=Definition]{definition}
-  \declaretheorem[numberwithin=section, style=thmquestionbox,   name=Question]{question}
-  \declaretheorem[numberwithin=section, style=thmsolutionbox,   name=Solution]{solution}
-}{
-  % Environments with color.
+% Always use colored environments for report
+% Environments with color.
   \newtcbtheorem[number within=section]{Definition}{Definition}{
     enhanced,
     before skip=4mm,

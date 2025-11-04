@@ -15,6 +15,9 @@
 \usepackage{subcaption}     % Subfigure environment
 \usepackage{natbib}         % Advanced citation management
 \usepackage{caption}        % Caption formatting
+\usepackage{tcolorbox}
+\usepackage{xparse}         % Enhanced command definitions
+
 
 % Hyperref settings
 % Note: research-collection does not use colorlinks, so links appear as boxes instead of colored text
@@ -69,3 +72,56 @@
 % Simple utility commands
 \newcommand*\widefbox[1]{\fbox{\hspace{2em}#1\hspace{2em}}}
 
+
+
+% Custom counter for figure placeholder items
+\newcounter{figureplaceholderitem}
+\renewcommand{\thefigureplaceholderitem}{\Alph{figureplaceholderitem}}
+
+% Custom item command that takes optional name
+\newcommand{\figureplaceholderitem}[1][]{%
+    \stepcounter{figureplaceholderitem}%
+    \par\noindent\textbf{\thefigureplaceholderitem.}%
+    \ifx\relax#1\relax%
+    \else%
+        \textbf{ #1}%
+    \fi%
+    \space
+}
+
+% Helper command for item in figureplaceholder environment
+% Use xparse for more robust optional argument handling
+\makeatletter
+% Use xparse for better compatibility with enumitem
+\NewDocumentCommand{\@figureplaceholderitemcmd}{o}{%
+    \IfValueTF{#1}{%
+        \figureplaceholderitem[#1]%
+    }{%
+        \figureplaceholderitem[]%
+    }%
+}
+\makeatother
+
+% Custom environment for figure placeholders
+\makeatletter
+\newtcolorbox{figureplaceholder}{
+    fontupper=\footnotesize,
+    boxrule=0.5pt,
+    colback=white,
+    colframe=black,
+    left=5pt,
+    right=5pt,
+    top=5pt,
+    bottom=5pt,
+    before upper={%
+        \linespread{1}\selectfont%
+        \setcounter{figureplaceholderitem}{0}%
+        \let\olditem\item%
+        \let\item\@figureplaceholderitemcmd%
+    },
+    after upper={%
+        \let\item\olditem%
+        \setcounter{figureplaceholderitem}{0}%
+    }
+}
+\makeatother

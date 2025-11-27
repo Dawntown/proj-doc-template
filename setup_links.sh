@@ -7,14 +7,16 @@
 # - figcodes/figs: large number of images
 # - outputs: final reports, slides, and papers
 
-taret_root="$HOME/OneDrive/OneDrive - The Chinese University of Hong Kong/Documents/manuscripts/proj-doc-template"
+projname=`pwd | awk -F'/' '{print $NF}'`
+cloud_root="$HOME/OneDrive/OneDrive - The Chinese University of Hong Kong/Documents/manuscripts"
+taret_root="$cloud_root/$projname"
 links=("figcodes/data" "figcodes/figs" "outputs")
 
 for lk in ${links[@]}; do
     # Remove existing directory/file if it exists and is not a symlink
-    if [ -e "$lk" ] && [ ! -L "$lk" ]; then
-        echo "Removing existing directory: $lk"
-        rm -rf "$lk"
+    if [ -e "$lk" ] && [ -L "$lk" ]; then
+        echo "Removing existing symlink: $lk"
+        rm "$lk"
     fi
     
     # Create symlink

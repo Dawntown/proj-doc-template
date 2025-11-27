@@ -35,7 +35,7 @@ detect_ctex() {
 # Function to compile a LaTeX document
 compile_doc() {
     local doc_type=$1
-    local mv_pdf=${2:-notmove}
+    local mv_pdf=$2
     local tex_file="${doc_type}.tex"
     
     echo "Compiling ${doc_type}..."
@@ -58,19 +58,21 @@ compile_doc() {
     
     # Move output to outputs directory with timestamp
     TIMESTAMP=$(date +%Y%m%d)
+     # Capitalize first letter for display
+    DOC_NAME=$(echo "$doc_type" | awk '{print toupper(substr($0,1,1)) substr($0,2)}')
+
     if [ "$mv_pdf" == "notmove" ]; then
         echo "Not moving PDF to outputs directory"
+        echo "${DOC_NAME} compiled successfully: ${doc_type}/${doc_type}.pdf"
     elif [ "$mv_pdf" == "move" ]; then
         echo "Moving PDF to outputs directory"
         mv "${doc_type}.pdf" "../outputs/${doc_type}_${TIMESTAMP}.pdf"
+        echo "${DOC_NAME} compiled successfully: outputs/${doc_type}_${TIMESTAMP}.pdf"
     else
         echo "Error: Unknown move option '$mv_pdf'"
         echo "Usage: $0 [manuscript|report|slides] [notmove|move]"
         echo "Default behavior: not moving PDF to outputs directory"
     fi
-    # Capitalize first letter for display
-    DOC_NAME=$(echo "$doc_type" | awk '{print toupper(substr($0,1,1)) substr($0,2)}')
-    echo "${DOC_NAME} compiled successfully: outputs/${doc_type}_${TIMESTAMP}.pdf"
     
     cd ..
 }
@@ -83,10 +85,11 @@ if [ $# -eq 0 ]; then
 fi
 
 DOC_TYPE=$1
+MOVE_PDF=${2:-notmove}
 
 case $DOC_TYPE in
     manuscript|report|slides)
-        compile_doc "$DOC_TYPE"
+        compile_doc "$DOC_TYPE" "$MOVE_PDF"
         ;;
     *)
         echo "Error: Unknown document type '$DOC_TYPE'"

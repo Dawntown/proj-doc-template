@@ -5,6 +5,7 @@
 % Configure natbib for Beamer (use numbers instead of author-year)
 % This must be done before loading preamble_base.tex
 \PassOptionsToPackage{numbers,sort&compress}{natbib}
+\PassOptionsToPackage{most,many,breakable}{tcolorbox}
 
 \input{../preamble_base.tex}
 
@@ -58,7 +59,6 @@
 
 % Additional packages for theorem environments in Beamer
 \usepackage{thmtools}
-\usepackage[most,many,breakable]{tcolorbox}
 \tcbuselibrary{theorems,skins,hooks}
 \usetikzlibrary{arrows,calc,shadows.blur}
 

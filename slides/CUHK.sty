@@ -8,15 +8,26 @@
 
 \useoutertheme[footline=authorinstitutetitle,subsection=false]{smoothbars}
 \makeatletter % [add curpage/total page at the bottom](http://tex.stackexchange.com/questions/100838/beamer-dresden-theme-miniframes-appeareance-and-frame-number-insertion)
+\def\insertpresentation{}
+\def\insertshortpresentation{}
+\renewcommand{\presentation}[2][]{%
+  \gdef\insertshortpresentation{#1}%
+  \gdef\insertpresentation{#2}%
+  \ifx\insertshortpresentation\@empty
+    \gdef\insertshortpresentation{#2}%
+  \fi
+}
 \newcommand{\frameofframes}{/}
 \newcommand{\setframeofframes}[1]{\renewcommand{\frameofframes}{#1}}
-\setbeamertemplate{footline} 
+\setbeamertemplate{footline}
   {%
     \begin{beamercolorbox}[colsep=1.5pt]{upper separation line foot}
     \end{beamercolorbox}
     \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
       leftskip=.3cm,rightskip=.3cm plus1fil]{author in head/foot}%
       \leavevmode{\usebeamerfont{author in head/foot}\insertshortauthor}%
+      \hfill%
+      {\usebeamerfont{author in head/foot}\insertshortpresentation}%
       \hfill%
       {\usebeamerfont{institute in head/foot}\usebeamercolor[fg]{institute in head/foot}\insertshortinstitute}%
     \end{beamercolorbox}%

@@ -46,9 +46,9 @@
 \def\todo#1{\large\color{red}\textit{#1}}
 
 % Listings settings (matching research-collection style)
-\xdefinecolor{cuhksz1}{rgb}{0.457,0.0585,0.42578}      %RGB(117,15,109)
-\xdefinecolor{cuhksz2}{rgb}{0.86328,0.63671875,0}      %RGB(221,163,0)
-\xdefinecolor{cuhksz3}{rgb}{0.953125,0.87109,0.6875}   %RGB(244,223,176)
+\xdefinecolor{cuhk1}{rgb}{0.457,0.0585,0.42578}      %RGB(117,15,109)
+\xdefinecolor{cuhk2}{rgb}{0.86328,0.63671875,0}      %RGB(221,163,0)
+\xdefinecolor{cuhk3}{rgb}{0.953125,0.87109,0.6875}   %RGB(244,223,176)
 
 \definecolor{deepred}{rgb}{0.6,0,0}
 \definecolor{frenchblue}{rgb}{0.0, 0.25, 0.63}
@@ -92,8 +92,10 @@
 % Custom theorem-like environments using tcolorbox blocks
 \newtcolorbox{tcbtheorem}[1][]{
     enhanced,
-    before skip=2mm,
-    after skip=2mm,
+    breakable,
+    parbox=false,
+    before skip=2mm plus 0.5mm minus 0.5mm,
+    after skip=2mm plus 0.5mm minus 0.5mm,
     colback=theorem!4,
     colframe=theorem!70!black,
     colbacktitle=theorem!65!black,
@@ -120,8 +122,10 @@
 
 \newtcolorbox{tcblemma}[1][]{
     enhanced,
-    before skip=2mm,
-    after skip=2mm,
+    breakable,
+    parbox=false,
+    before skip=2mm plus 0.5mm minus 0.5mm,
+    after skip=2mm plus 0.5mm minus 0.5mm,
     colback=lemma!4,
     colframe=lemma!70!black,
     colbacktitle=lemma!65!black,
@@ -148,8 +152,10 @@
 
 \newtcolorbox{tcbcorollary}[1][]{
     enhanced,
-    before skip=2mm,
-    after skip=2mm,
+    breakable,
+    parbox=false,
+    before skip=2mm plus 0.5mm minus 0.5mm,
+    after skip=2mm plus 0.5mm minus 0.5mm,
     colback=corollary!4,
     colframe=corollary!70!black,
     colbacktitle=corollary!65!black,
@@ -176,8 +182,10 @@
 
 \newtcolorbox{tcbprop}[1][]{
     enhanced,
-    before skip=2mm,
-    after skip=2mm,
+    breakable,
+    parbox=false,
+    before skip=2mm plus 0.5mm minus 0.5mm,
+    after skip=2mm plus 0.5mm minus 0.5mm,
     colback=prop!4,
     colframe=prop!70!black,
     colbacktitle=prop!65!black,
@@ -204,8 +212,10 @@
 
 \newtcolorbox{tcbclaim}[1][]{
     enhanced,
-    before skip=2mm,
-    after skip=2mm,
+    breakable,
+    parbox=false,
+    before skip=2mm plus 0.5mm minus 0.5mm,
+    after skip=2mm plus 0.5mm minus 0.5mm,
     colback=claim!4,
     colframe=claim!70!black,
     colbacktitle=claim!65!black,
@@ -232,8 +242,10 @@
 
 \newtcolorbox{tcbdefinition}[1][]{
     enhanced,
-    before skip=2mm,
-    after skip=2mm,
+    breakable,
+    parbox=false,
+    before skip=2mm plus 0.5mm minus 0.5mm,
+    after skip=2mm plus 0.5mm minus 0.5mm,
     colback=definition!3,
     colframe=definition!70!black,
     colbacktitle=definition!65!black,
@@ -260,8 +272,10 @@
 
 \newtcolorbox{tcbexample}[1][]{
     enhanced,
-    before skip=2mm,
-    after skip=2mm,
+    breakable,
+    parbox=false,
+    before skip=2mm plus 0.5mm minus 0.5mm,
+    after skip=2mm plus 0.5mm minus 0.5mm,
     colback=example!5,
     colframe=example!70!black,
     colbacktitle=example!65!black,
@@ -288,8 +302,10 @@
 
 \newtcolorbox{tcbexercise}[1][]{
     enhanced,
-    before skip=2mm,
-    after skip=2mm,
+    breakable,
+    parbox=false,
+    before skip=2mm plus 0.5mm minus 0.5mm,
+    after skip=2mm plus 0.5mm minus 0.5mm,
     colback=exercise!4,
     colframe=exercise!70!black,
     colbacktitle=exercise!65!black,
@@ -375,9 +391,10 @@
     title=\textbf{Note},
     halign title=flush left,
     coltitle=cuhkpurple!65!black,
-    before skip=2mm,
-    after skip=2mm,
     breakable,
+    parbox=false,
+    before skip=2mm plus 0.5mm minus 0.5mm,
+    after skip=2mm plus 0.5mm minus 0.5mm,
     left=3mm,
     right=3mm,
     top=2mm,
@@ -389,8 +406,9 @@
 \newtcolorbox{proofbox}[1][]{
     enhanced,
     breakable,
-    before skip=2mm,
-    after skip=2mm,
+    parbox=false,
+    before skip=2mm plus 0.5mm minus 0.5mm,
+    after skip=2mm plus 0.5mm minus 0.5mm,
     colback=proof!4,
     colframe=proof!70!black,
     boxrule=0pt,
@@ -403,15 +421,16 @@
     right=4mm,
     top=2mm,
     bottom=2mm,
-    fonttitle=\bfseries\sffamily\color{proof!70!black},
-    title={\textbf{Proof\ifx\relax#1\relax\else: #1\fi}}
+    before upper={\textbf{\textcolor{proof!70!black}{Proof\ifx\relax#1\relax\else: #1\fi}}\par\vspace{-2mm}},
+    #1
 }
 
 \newtcolorbox{explanation}[1][]{
     enhanced,
     breakable,
-    before skip=2mm,
-    after skip=2mm,
+    parbox=false,
+    before skip=2mm plus 0.5mm minus 0.5mm,
+    after skip=2mm plus 0.5mm minus 0.5mm,
     colback=example!4,
     colframe=example!70!black,
     boxrule=0pt,
@@ -516,11 +535,11 @@
 
 \lstset{
     basicstyle=\ttfamily\small,
-    keywordstyle=\bfseries\color{cuhksz1},
+    keywordstyle=\bfseries\color{cuhk1},
     emphstyle=\ttfamily\color{deepred},
-    stringstyle=\color{cuhksz2},
+    stringstyle=\color{cuhk2},
     numbers=left,
-    numberstyle=\small\color{cuhksz3},
+    numberstyle=\small\color{cuhk3},
     rulesepcolor=\color{red!20!green!20!blue!20},
     frame=shadowbox,
 }
@@ -535,8 +554,9 @@
 \newtcolorbox{vertlineblock}[2][]{
   enhanced,
   breakable,
-  before skip=2mm,
-  after skip=2mm,
+  parbox=false,
+  before skip=2mm plus 0.5mm minus 0.5mm,
+  after skip=2mm plus 0.5mm minus 0.5mm,
   colback=#1!4,
   colframe=#1!70!black,
   boxrule=0pt,
@@ -559,8 +579,9 @@
 \newtcolorbox{fullborderblock}[2][]{
   enhanced,
   breakable,
-  before skip=2mm,
-  after skip=2mm,
+  parbox=false,
+  before skip=2mm plus 0.5mm minus 0.5mm,
+  after skip=2mm plus 0.5mm minus 0.5mm,
   colback=#1!5,
   colframe=#1!70!black,
   boxrule=2pt,
@@ -579,14 +600,19 @@
 \newtcolorbox{titleboxblock}[2][]{
   enhanced,
   breakable,
-  before skip=2mm,
-  after skip=2mm,
+  parbox=false,
+  before skip=2mm plus 0.5mm minus 0.5mm,
+  after skip=2mm plus 0.5mm minus 0.5mm,
   colback=#1!3,
   colframe=#1!70!black,
   colbacktitle=#1!65!black,
   coltitle=white,
   boxrule=1.2pt,
   arc=4pt,
+  left=4mm,
+  right=4mm,
+  top=2mm,
+  bottom=2mm,
   attach boxed title to top left={
     xshift=4mm,
     yshift*=-2mm
@@ -614,8 +640,9 @@
 \newtcolorbox{highlightblock}[2][]{
   enhanced,
   breakable,
-  before skip=2mm,
-  after skip=2mm,
+  parbox=false,
+  before skip=2mm plus 0.5mm minus 0.5mm,
+  after skip=2mm plus 0.5mm minus 0.5mm,
   colback=#1!4,
   colframe=#1!70!black,
   colbacktitle=#1!65!black,

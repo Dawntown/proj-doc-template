@@ -17,7 +17,14 @@
 \usepackage{caption}        % Caption formatting
 \usepackage{tcolorbox}
 \usepackage{xparse}         % Enhanced command definitions
+\usepackage{cancel}         % Cancel support
 \usepackage[ruled,vlined,linesnumbered]{algorithm2e} % Algorithm environment
+\SetAlgoLined
+\SetKwInOut{Input}{Input}
+\SetKwInOut{Output}{Output}
+\SetKwData{\textbf{return}}{Return}
+\newcommand\mycommfont[1]{\footnotesize\ttfamily\textcolor{gray}{#1}}
+\SetCommentSty{mycommfont}
 
 % Hyperref settings
 % Note: research-collection does not use colorlinks, so links appear as boxes instead of colored text
@@ -41,6 +48,24 @@
 \crefname{table}{Table}{Tables}
 \Crefname{equation}{Equation}{Equations}
 \crefname{equation}{Equation}{Equations}
+\Crefname{algorithm}{Algorithm}{Algorithms}
+\crefname{algorithm}{Algorithm}{Algorithms}
+\Crefname{definition}{Definition}{Definitions}
+\crefname{definition}{Definition}{Definitions}
+\Crefname{lemma}{Lemma}{Lemmas}
+\crefname{lemma}{Lemma}{Lemmas}
+\Crefname{corollary}{Corollary}{Corollaries}
+\crefname{corollary}{Corollary}{Corollaries}
+\Crefname{proposition}{Proposition}{Propositions}
+\crefname{proposition}{Proposition}{Propositions}
+\Crefname{claim}{Claim}{Claims}
+\crefname{claim}{Claim}{Claims}
+\Crefname{proof}{Proof}{Proofs}
+\crefname{proof}{Proof}{Proofs}
+\Crefname{example}{Example}{Examples}
+\crefname{example}{Example}{Examples}
+\Crefname{theorem}{Theorem}{Theorems}
+\crefname{theorem}{Theorem}{Theorems}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  Simple and Useful Symbol Definitions                                        %
@@ -72,7 +97,8 @@
 % Simple utility commands
 \newcommand*\widefbox[1]{\fbox{\hspace{2em}#1\hspace{2em}}}
 
-
+% Superscript citation command
+\newcommand{\supcite}[1]{\textsuperscript{\cite{#1}}}
 
 % Custom counter for figure placeholder items
 \newcounter{figureplaceholderitem}
